@@ -1,8 +1,0 @@
-.Navbar-logo {
-  animation: Navbar-logo-spin infinite 20s linear;
-}
-
-@keyframes Navbar-logo-spin {
-  from { trasnform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
