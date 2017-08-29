@@ -1,6 +1,6 @@
 import React from 'react';
 import { Authentication } from '../components';
-
+import { createReactClass } from 'create-react-class'; //from React V15.5 추가
 //import { connect } from 'react-redux';
 //import { bindActionCreators} from 'redux';
 //import * as authenTications from '../actions/authenTication';
@@ -8,6 +8,7 @@ import { Authentication } from '../components';
 //import { browserHistory } from 'react-router';
 
 class Login extends React.Component {
+//class Login extends createReactClass {
     constructor(props) {
         super(props);
 

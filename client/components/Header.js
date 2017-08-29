@@ -1,7 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import PropTypes from 'prop-types';  //from react v15.5
+import { createReactClass } from 'create-react-class'; //from React V15.5 추가
+
 export default class Header extends React.Component {
+//export default class Header extends createReactClass {
   constructor(props) {
     super(props);
 
@@ -46,7 +50,14 @@ export default class Header extends React.Component {
                 ( <div></div> ) :  ( <div></div> )
             }
 
-            <div className="logoname">TerryDB</div>
+            <div className="title_func">
+                <div className="logo_name">
+                    TerryDB
+                </div>
+                <div className="photo_search">
+                    <i className="material-icons">search</i>
+                </div>
+            </div>
 
             <div>
                 { this.props.isLoggedIn ? logoutButton : loginButton }
@@ -58,8 +69,8 @@ export default class Header extends React.Component {
 } //end class
 
 Header.propTypes = {
-    isLoggedIn: React.PropTypes.bool,
-    onLogout: React.PropTypes.func
+    isLoggedIn: PropTypes.bool,
+    onLogout: PropTypes.func
 };
 
 Header.defaultProps = {

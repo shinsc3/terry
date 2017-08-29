@@ -1,7 +1,9 @@
 import React from 'react';
 import { Header } from '../components';
+import { createReactClass } from 'create-react-class'; //from React V15.5 추가
 
 class App extends React.Component {
+//class App extends createReactClass {
 
     render() {
       return (

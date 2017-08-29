@@ -1,0 +1,105 @@
+.IdataList {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: calc(100%-50px);
+  //height: 92vh;
+
+  @include phone {
+    width: 100vw;
+  }
+}
+
+.IdataList1 {
+  width: 640px;  //instagram은 600px
+  height: 50vh;  //62vh => 62%의미
+
+  position: relative; //여기서 이렇케 선언하고 saveButton에서 absolute를 사용하는것이 중요하다
+  //위의 position: relative를 지운이유는 sidebar의 내부 메뉴중 canvas 영역에 있는것이 canvas아래에 가려져 메뉴 실행불가를 막기위해
+  // 8/12/2017 수정
+
+  background-color: white;
+  //overflow: hidden;
+
+  @include phone {
+    width: 100vw;
+  }
+}
+
+.saveButton {
+  position: absolute;  //위에서 idataList1을 relative로 하고 여기서 absolute하면서 위치를 지정하면 윈도우처럼 사용가능...
+  left: 0px;
+  top: 10px;
+  //top: 55px; //8/12/2017 수정
+  padding-left: 10px;
+
+  &:hover {
+    i {
+      color: #ff9980;
+      font-size: 40px;
+      cursor: pointer;
+    }
+  }
+}
+
+.i_prev {
+  cursor: pointer;
+  position: absolute;
+  left: 0px;
+  top: 50%;
+  padding-left: 10px;
+
+  color: #ff9980;
+  font-weight: bold;
+  font-size: 36px;
+  transition: 0.6s ease;
+  border: 3px solid rgba(230, 230, 230, 0.65);
+  border-radius: 5px;
+
+  &:hover{
+    color: rgba(230, 230, 230, 0.65);
+    border: 3px solid #ff9980;
+    border-radius: 5px;
+    //font-size: 48px;
+  }
+}
+
+.i_next {
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  padding-right: 10px;
+
+  color: #ff9980;
+  font-weight: bold;
+  font-size: 36px;
+  transition: 0.6s ease;
+  border: 3px solid rgba(230, 230, 230, 0.65);
+  border-radius: 5px;
+
+  &:hover{
+    color: rgba(230, 230, 230, 0.65);
+    border: 3px solid #ff9980;
+    border-radius: 5px;
+    //font-size: 48px;
+  }
+}
+
+
+.IdataList2 {
+  width: 640px;
+  height: 42vh; //30vh
+
+  color: rgba(0, 0, 0, 0.85);     //rgba(255, 255, 255, 0.85);
+  background-color: #ffcccc; //분홍색     //background-color: rgba(0, 0, 0, 0.70);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+  @include phone {
+    width: 100vw;
+  }
+}

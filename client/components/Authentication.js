@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import PropTypes from 'prop-types';  //react v15.5  React.PropTypes -> PropTypes
+import { createReactClass } from 'create-react-class'; //from React V15.5 추가
 
 export default class Authentication extends React.Component {
+//export default class Authentication extends createReactClass {
   constructor(props) {
       super(props);
 
@@ -35,18 +38,18 @@ export default class Authentication extends React.Component {
   }
 
   callLogin() {
-        let id = this.state.username;
-        let pw = this.state.password;
+        let username = this.state.username;
+        let password = this.state.password;
 
   }
 
   callRegister() {
-    let id = this.state.username;
-    let nick = this.state.nickname;
-    let pw = this.state.password;
+    let username = this.state.username;
+    let nickname = this.state.nickname;
+    let password = this.state.password;
     let groupname = this.state.groupname;
 
-    this.props.onRegister(id, nick, pw, groupname);
+    this.props.onRegister(username, nickname, password, groupname);
   }
 
 
@@ -137,23 +140,23 @@ export default class Authentication extends React.Component {
       );
 
       return (
-          <div className="auth">
+        <div className="auth">
             <div className="card hoverable">
                 <div className="header blue white-text center">
                     <div className="card-content">{this.props.mode ? "LOGIN" : "REGISTER"}</div>
                 </div>
                 {this.props.mode ? loginView : registerView }
             </div>
-          </div>
+        </div>
       );
 
     }  // render
 }
 
 Authentication.propTypes = {
-    mode: React.PropTypes.bool,
-    onLogin: React.PropTypes.func,
-    onRegister: React.PropTypes.func
+    mode: PropTypes.bool,
+    onLogin: PropTypes.func,
+    onRegister: PropTypes.func
 };
 
 Authentication.defaultProps = {

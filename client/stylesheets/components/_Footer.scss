@@ -1,0 +1,50 @@
+.fooooter {
+    width: 100%;
+
+    box-shadow: 0px -5px 10px -5px rgba(0,0,0,.85);
+    background-color: rgba(28, 34, 37, 0.95);
+    color: white;
+    border-top: 1px solid black;
+    letter-spacing: 2px;
+
+    .container {
+        @include phone {
+            margin: 0;
+        }
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        list-style-type: none;
+    }
+
+    li {
+        float: left;
+
+        @include phone {
+            float: none;
+        }
+
+        &.right {
+            padding: 15px;
+            float: right;
+            font-weight: 600;
+            @include phone {
+                float: none;
+                text-align: center;
+            }
+        }
+    }
+
+    li a {
+        display: block;
+        color: white;
+        padding: 15px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(255,255,255, 0.1);
+        }
+    }
+}

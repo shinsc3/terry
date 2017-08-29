@@ -44,11 +44,18 @@ body {
   height: 50px;
   width :100%;
   background-color: rgba(28, 34, 37, 1);
-  color: white;
-  text-align: center;
+  color: white;  
+}
+
+.Navbar {
+  position: fixed;
+  left: 0px;
+  top: 51px;
+  width: 100%;
 }
 
 .menu-button {
+  cursor: pointer;  //링크시 마우스 모양이 손이 되게
   position: absolute;
   left: 0px;
   padding-left: 20px;
@@ -61,23 +68,26 @@ body {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-                 i {
-                     color: rgba(255, 255, 255, 0.85);
-                     font-size: 25px;
-                     transition: all 100ms ease;
-                 }
+      i {
+          color: rgba(255, 255, 255, 0.85);
+          font-size: 25px;
+          transition: all 100ms ease;
+      }
   }
   &:hover {
       i {
             color: white;
             font-size: 40px;
          }
-   }
+  }
 }
 
-.logoname {
-  //position: absolute;
-  //left: 50px;
+.barHeader .logo-name {
+  position: absolute;
+  left: 0px;
+  top: 10px;
+  width: 100%;
+  text-align: center;
   color: rgba(255, 255, 255, 0.85);
   font-size: 30px;
   font-family: 'Cinzel';
@@ -87,6 +97,15 @@ body {
 }
 
 .LogInOut {
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  top: 10px;
+  padding-right: 20px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.LogOutIn {
+  cursor: pointer;
   position: absolute;
   right: 0px;
   top: 10px;

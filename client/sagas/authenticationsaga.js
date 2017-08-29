@@ -1,4 +1,4 @@
-import { call, put, takeLatest } from 'redux-saga/effects'
+import { call, put, fork, takeLatest } from 'redux-saga/effects'
 
 import * as types from '../actions/actionTypes';
 //import { SIGNUP_REQUESTING, SIGNUP_SUCCESS, SIGNUP_ERROR } from '../actions/actionTypes'
@@ -24,6 +24,8 @@ function signupApi (username, nickname, password, groupname) {
 
 // This will be run when the SIGNUP_REQUESTING Action is found by the watcher
 function* signupFlow (action) {
+  console.log('여기는 SIGNUP_REQUESTING을 받은후에야 올수 있다');
+
   try {
     const { username, nickname, password, groupname } = action
 
@@ -35,11 +37,11 @@ function* signupFlow (action) {
     // when the above api call has completed it will "put",
     // or dispatch, an action of type SIGNUP_SUCCESS with
     // the successful response.
-    yield put({ type: ActionTypes.SIGNUP_SUCCESS, response })
+    yield put({ type: 'SIGNUP_SUCCESS', response })
   } catch (error) {
     // if the api call fails, it will "put" the SIGNUP_ERROR
     // into the dispatch along with the error.
-    yield put({ type: ActionTypes.SIGNUP_ERROR, error })
+    yield put({ type: 'SIGNUP_FAILURE', error })
   }
 }
 
@@ -49,7 +51,9 @@ function* signupWatcher () {
   // if we we're to use takeEvery, it would take every single
   // one of the actions and kick off a new task to handle it
   // CONCURRENTLY!!!
-  yield takeLatest(ActionTypes.SIGNUP_REQUESTING, signupFlow)
+
+  console.log('여기는 그냥 오는데다. SIGNUP_REQUESTING을 받아야 signupFlow를 실행한다');
+  yield takeLatest('SIGNUP_REQUESTING', signupFlow)
 }
 
 export default function* authenticationSaga() {
